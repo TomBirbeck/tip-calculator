@@ -15,21 +15,27 @@
   <main>
     <h1 class="heading">SPLITER</h1>
     <div class="card">
-      <label htmlfor="Bill">Bill</label>
-      <input type="number" />
+      <label htmlfor="bill">Bill</label>
+      <input type="number" class="bill"/>
       <h2>Select Tip %</h2>
-      <button class="button">5%</button>
-      <button class="button">10%</button>
-      <button class="button">15%</button>
-      <button class="button">25%</button>
-      <button class="button">50%</button>
-      <label htmlfor="number of people">Number of People</label>
-      <input type="number"/>
-      <div class="tip-amount-container">
-        <h3>Tip Amount</h3>
-        <p> /person</p>
-        <h3>Total</h3>
-        <p> /person</p>
+      <button class="button five">5%</button>
+      <button class="button ten">10%</button>
+      <button class="button fifteen">15%</button>
+      <button class="button twenty-five">25%</button>
+      <button class="button fifty">50%</button>
+      <label htmlfor="number ofpeople">Number of People</label>
+      <input type="number" class="people"/>
+      <div class="payment-container">
+        <div class="tip-container">
+          <h3>Tip Amount</h3>
+          <p> /person</p>
+          <p class="tip">£<span class="tip-amount"></span></p>
+        </div>
+        <div class="total-split-container">
+          <h3>Total</h3>
+          <p> /person</p>
+          <p class="split">£<span class="total-per-person"></span></p>
+        </div>
         <button class="reset-button">Reset</button>
       </div>
     </div>
@@ -40,6 +46,6 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
   </footer>
-  
+  <script src="main.js"></script>
 </body>
 </html>
