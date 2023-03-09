@@ -23,6 +23,8 @@
 html, body {
   height: 100%;
   font-family: 'Space Mono', monospace;
+  background-color: var(--light-grayish-cyan);
+  font-weight: 700;
 }
 
 img, picture, video, canvas, svg {
@@ -42,6 +44,111 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .hidden {
   display: none;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  margin: 1rem 0;
+  width: 25%;
+  text-align: center;
+  color: var(--very-dark-cyan);
+  font-size: 1.6rem;
+  letter-spacing: 0.4rem;
+}
+
+.card {
+  background-color: var(--custom-white);
+  border-radius: 1rem 1rem 0 0;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bill {
+  display: flex;
+  width: 100%;
+  text-align: right;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: var(--light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+}
+
+.bill-label {
+  width: 100%;
+  text-align: left;
+  color: var(--dark-grayish-cyan);
+}
+
+.tip-header {
+  align-self: flex-start;
+  margin: 2rem 0 1rem 0;
+  font-size: 1rem;
+  color: var(--dark-grayish-cyan);
+}
+
+.button-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.button {
+  width: 100%;
+  background-color: var(--very-dark-cyan);
+  color: var(--custom-white);
+  border-radius: 0.3rem;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+}
+
+.button:hover {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.custom-container {
+  width: 100%;
+}
+
+.custom {
+  width: 100%;
+  border-radius: 0.3rem;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  text-align: right;
+  background-color: var(--light-grayish-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.custom-tip {
+  border: none;
+  border-radius: 0.3rem;
+  width: 100%;
+  text-align: right;
+  color: var(--very-dark-cyan);
+  background-color: var(--light-grayish-cyan);
+  font-size: 1.2rem;
+  padding: 0.1rem 1rem;
+}
+
+.custom-tip:hover {
+  border: 2px solid var(--strong-cyan);
 }
 
 .attribution {

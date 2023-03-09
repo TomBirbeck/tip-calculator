@@ -13,19 +13,21 @@
 </head>
 <body>
   <main>
-    <h1 class="heading">SPLITER</h1>
+    <h1 class="heading">SPLITTER</h1>
     <div class="card">
-      <label htmlfor="bill">Bill</label>
+      <label htmlfor="bill" class="bill-label">Bill</label>
       <input type="number" class="bill" placeholder="0"/>
-      <h2>Select Tip %</h2>
-      <button class="button five" value="5">5%</button>
-      <button class="button ten" value="10">10%</button>
-      <button class="button fifteen" value="15">15%</button>
-      <button class="button twenty-five" value="25">25%</button>
-      <button class="button fifty" value="50">50%</button>
-      <div>
-        <button class="button custom">custom</button>
-        <input type="number" class="custom-tip hidden" placeholder="0">
+      <h2 class="tip-header">Select Tip %</h2>
+      <div class="button-container">
+        <button class="button five" value="5">5%</button>
+        <button class="button ten" value="10">10%</button>
+        <button class="button fifteen" value="15">15%</button>
+        <button class="button twenty-five" value="25">25%</button>
+        <button class="button fifty" value="50">50%</button>
+        <div class="custom-container">
+          <button class="custom">Custom</button>
+          <input type="number" class="custom-tip hidden" placeholder="0">
+        </div>
       </div>
       <label htmlfor="number ofpeople">Number of People</label>
       <input type="number" class="people" placeholder="0"/>
