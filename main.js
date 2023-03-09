@@ -10,15 +10,12 @@ const fifty = document.querySelector('.fifty')
 const custom = document.querySelector('.custom')
 const reset = document.querySelector('.reset-button')
 
-// console.log(five.value)
-
 let billAmount = 0;
 let tippingPercent = 0;
 let amountOfPeople = 0;
 
 const handleBill = (e) => {
-    billAmount = e.target.value
-    console.log(billAmount)
+    billAmount = Number(e.target.value)
     calculateAmountToPay(billAmount, tippingPercent, amountOfPeople)
 }
 
@@ -28,7 +25,6 @@ const handleTip = (button) => {
 
 const handlePeople = (e) => {
     amountOfPeople = e.target.value
-    console.log(amountOfPeople)
     calculateAmountToPay(billAmount, tippingPercent, amountOfPeople)
 }
 
@@ -37,7 +33,7 @@ people.addEventListener('change', handlePeople)
 five.addEventListener('click', () => {handleTip(five)})
 
 const calculateTip = (total, tipPercentage) => {
-    return ((total/100) * tipPercentage)
+    return (total/100) * tipPercentage
 }
 
 const calculateTipPerPerson = (total, tipPercentage, people) => {
@@ -49,7 +45,9 @@ const calculateSplitBill = (total, people) => {
 }
 
 const calculateAmountToPay = (bill, tipPercentage, people) => {
-const total = bill + calculateTip(bill, tipPercentage)
-console.log("hey")
-return total / people
+    const tip = calculateTip(bill, tipPercentage)
+    const total = bill + tip
+    tipAmount.textContent = tip
+    toPayPerPerson.textContent = total / people
+    console.log({bill, tipPercentage, people, tip, total})
 }
