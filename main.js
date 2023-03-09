@@ -21,6 +21,7 @@ const handleBill = (e) => {
 
 const handleTip = (button) => {
     tippingPercent = Number(button.value)
+    calculateAmountToPay(billAmount, tippingPercent, amountOfPeople)
 }
 
 const handlePeople = (e) => {
@@ -28,9 +29,17 @@ const handlePeople = (e) => {
     calculateAmountToPay(billAmount, tippingPercent, amountOfPeople)
 }
 
+const handleCustom = () => {
+
+}
+
 bill.addEventListener('change', handleBill)
 people.addEventListener('change', handlePeople)
 five.addEventListener('click', () => {handleTip(five)})
+ten.addEventListener('click', () => {handleTip(ten)})
+fifteen.addEventListener('click', () => {handleTip(fifteen)})
+twentyFive.addEventListener('click', () => {handleTip(twentyFive)})
+fifty.addEventListener('click', () => {handleTip(fifty)})
 
 const calculateTip = (total, tipPercentage) => {
     return (total/100) * tipPercentage
@@ -45,9 +54,7 @@ const calculateSplitBill = (total, people) => {
 }
 
 const calculateAmountToPay = (bill, tipPercentage, people) => {
-    const tip = calculateTip(bill, tipPercentage)
-    const total = bill + tip
-    tipAmount.textContent = tip
-    toPayPerPerson.textContent = total / people
-    console.log({bill, tipPercentage, people, tip, total})
+    const total = bill + calculateTip(bill, tipPercentage)
+    tipAmount.textContent = calculateTipPerPerson(bill, tipPercentage, people)
+    toPayPerPerson.textContent = calculateSplitBill(total, people)
 }
