@@ -152,11 +152,21 @@ main {
   border: 2px solid var(--strong-cyan);
 }
 
-.number-of-people-label {
-  align-self: flex-start;
+.people-heading-container{
+  width: 100%;
   margin: 1.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.number-of-people-label {
   font-size: 1rem;
   color: var(--dark-grayish-cyan);
+}
+
+.people-prompt {
+color: red;
 }
 
 .people {

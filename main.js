@@ -9,6 +9,7 @@ const twentyFive = document.querySelector('.twenty-five');
 const fifty = document.querySelector('.fifty');
 const customTip = document.querySelector('.custom-tip');
 const reset = document.querySelector('.reset-button');
+const prompt = document.querySelector('.people-prompt')
 
 let billAmount = 0;
 let tippingPercent = 0;
@@ -16,18 +17,29 @@ let amountOfPeople = 0;
 
 const handleBill = (e) => {
     billAmount = Number(e.target.value);
-    calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    if (amountOfPeople > 0) {
+        calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    }
 }
 
 const handleTip = (button) => {
     tippingPercent = Number(button.value);
-    calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    if (amountOfPeople > 0) {
+        calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    }
 }
 
 const handlePeople = (e) => {
-    amountOfPeople = Number(e.target.value);
-    calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
-}
+        if (e.target.value && e.target.value === '0'){
+            prompt.classList.remove('hidden')
+        } else if (e.target.value && Number(e.target.value) > 0){
+            prompt.classList.add('hidden')
+            amountOfPeople = Number(e.target.value);
+            calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+        } else {
+            prompt.classList.add('hidden')
+        }
+    } 
 
 const handleCustomTip = (e) => {
     if (e.target.value > 0) {
@@ -44,6 +56,7 @@ const handleReset = () => {
     toPayPerPerson.textContent = '£';
     bill.value = '';
     people.value = '';
+    prompt.classList.add('hidden')
 }
 
 bill.addEventListener('keyup', handleBill);
