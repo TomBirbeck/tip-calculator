@@ -1,7 +1,7 @@
 const bill = document.querySelector('.bill');
 const people = document.querySelector('.people');
-const tipAmount = document.querySelector('.tip-amount');
-const toPayPerPerson = document.querySelector('.total-per-person');
+const tipAmount = document.querySelector('.tip');
+const toPayPerPerson = document.querySelector('.split');
 const five = document.querySelector('.five');
 const ten = document.querySelector('.ten');
 const fifteen = document.querySelector('.fifteen');
@@ -40,8 +40,8 @@ const handleReset = () => {
     billAmount = 0;
     tippingPercent = 0;
     amountOfPeople = 0;
-    tipAmount.textContent = '';
-    toPayPerPerson.textContent = '';
+    tipAmount.textContent = '£';
+    toPayPerPerson.textContent = '£';
     bill.value = '';
     people.value = '';
 }
@@ -72,9 +72,9 @@ const calculateAmountToPay = (bill, tipPercentage, people) => {
     const total = (bill + calculateTip(bill, tipPercentage)).toFixed(2);
     const tipPP = calculateTipPerPerson(bill, tipPercentage, people);
     if (tipPP >= 0){
-        tipAmount.textContent = tipPP;
+        tipAmount.textContent = '£'+tipPP;
     } else {
-        tipAmount.textContent = 0;
+        tipAmount.textContent = '£0.00';
     }
-    toPayPerPerson.textContent = calculateSplitBill(total, people);
+    toPayPerPerson.textContent = '£'+ calculateSplitBill(total, people);
 }

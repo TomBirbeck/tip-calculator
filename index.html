@@ -13,7 +13,7 @@
 </head>
 <body>
   <main>
-    <h1 class="heading">SPLITTER</h1>
+    <img class="heading-image" src="./images/logo.svg"></img>
     <div class="card">
       <label htmlfor="bill" class="bill-label">Bill</label>
       <input type="number" class="bill" placeholder="0"/>
@@ -26,18 +26,18 @@
         <button class="button fifty" value="50">50%</button>
         <input type="number" class="custom-tip" placeholder="Custom">
       </div>
-      <label htmlfor="number ofpeople">Number of People</label>
+      <label htmlfor="number of people" class="number-of-people-label">Number of People</label>
       <input type="number" class="people" placeholder="0"/>
       <div class="payment-container">
         <div class="tip-container">
-          <h3>Tip Amount</h3>
-          <p> /person</p>
-          <p class="tip">£<span class="tip-amount"></span></p>
+          <h3 class="tip-amount-header">Tip Amount</h3>
+          <p class="tip-amount-subtext">/person</p>
+          <p class="tip">£</p>
         </div>
         <div class="total-split-container">
-          <h3>Total</h3>
-          <p> /person</p>
-          <p class="split">£<span class="total-per-person"></span></p>
+          <h3 class="split-header">Total</h3>
+          <p class="split-subtext">/person</p>
+          <p class="split">£</p>
         </div>
         <button class="reset-button">Reset</button>
       </div>
