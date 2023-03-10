@@ -121,10 +121,6 @@ main {
   color: var(--very-dark-cyan);
 }
 
-.custom-container {
-  width: 100%;
-}
-
 .custom {
   width: 100%;
   border-radius: 0.3rem;

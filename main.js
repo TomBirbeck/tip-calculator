@@ -7,7 +7,6 @@ const ten = document.querySelector('.ten');
 const fifteen = document.querySelector('.fifteen');
 const twentyFive = document.querySelector('.twenty-five');
 const fifty = document.querySelector('.fifty');
-const custom = document.querySelector('.custom');
 const customTip = document.querySelector('.custom-tip');
 const reset = document.querySelector('.reset-button');
 
@@ -30,14 +29,11 @@ const handlePeople = (e) => {
     calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
 }
 
-const handleCustom = () => {
-    custom.classList.add('hidden');
-    customTip.classList.remove('hidden');
-}
-
 const handleCustomTip = (e) => {
-    tippingPercent = e.target.value;
-    calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    if (e.target.value > 0) {
+        tippingPercent = e.target.value;
+        calculateAmountToPay(billAmount, tippingPercent, amountOfPeople);
+    }
 }
 
 const handleReset = () => {
@@ -48,19 +44,16 @@ const handleReset = () => {
     toPayPerPerson.textContent = '';
     bill.value = '';
     people.value = '';
-    customTip.classList.add('hidden');
-    custom.classList.remove('hidden');
 }
 
-bill.addEventListener('change', handleBill);
-people.addEventListener('change', handlePeople);
+bill.addEventListener('keyup', handleBill);
+people.addEventListener('keyup', handlePeople);
 five.addEventListener('click', () => {handleTip(five)});
 ten.addEventListener('click', () => {handleTip(ten)});
 fifteen.addEventListener('click', () => {handleTip(fifteen)});
 twentyFive.addEventListener('click', () => {handleTip(twentyFive)});
 fifty.addEventListener('click', () => {handleTip(fifty)});
-custom.addEventListener('click', handleCustom);
-customTip.addEventListener('change', handleCustomTip);
+customTip.addEventListener('keyup', handleCustomTip);
 reset.addEventListener('click', handleReset);
 
 const calculateTip = (total, tipPercentage) => {
@@ -68,15 +61,15 @@ const calculateTip = (total, tipPercentage) => {
 }
 
 const calculateTipPerPerson = (total, tipPercentage, people) => {
-    return calculateTip(total, tipPercentage) / people;
+    return (calculateTip(total, tipPercentage) / people).toFixed(2);
 }
 
 const calculateSplitBill = (total, people) => {
-    return total / people;
+    return (total / people).toFixed(2);
 }
 
 const calculateAmountToPay = (bill, tipPercentage, people) => {
-    const total = bill + calculateTip(bill, tipPercentage);
+    const total = (bill + calculateTip(bill, tipPercentage)).toFixed(2);
     const tipPP = calculateTipPerPerson(bill, tipPercentage, people);
     if (tipPP >= 0){
         tipAmount.textContent = tipPP;
