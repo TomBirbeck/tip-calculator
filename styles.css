@@ -48,6 +48,10 @@ body {
   gap: 10rem;
 }
 
+.visually-hidden {
+  color: transparent;
+}
+
 .hidden {
   display: none;
 }
@@ -60,7 +64,7 @@ main {
 }
 
 .heading-image {
-  margin: 2rem 0;
+  margin-top: 2rem;
 }
 
 .card {
@@ -84,6 +88,16 @@ main {
   color: var(--very-dark-cyan);
   font-size: 1.2rem;
   padding: 0.3rem 0.5rem;
+  background-image: url('./images/icon-dollar.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
+}
+
+.bill::before {
+  position: absolute;
+  top: 100;
+  content: url('./images/icon-dollar.svg');
 }
 
 .bill-label {
@@ -154,6 +168,10 @@ main {
   color: var(--very-dark-cyan);
   font-size: 1.2rem;
   padding: 0.3rem 0.5rem;
+  background-image: url('./images/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
 }
 
 .payment-container {
@@ -226,6 +244,10 @@ main {
   border: none;
   font-size: 1.2rem;
   padding: 0.3rem;
+}
+
+.reset-button:hover {
+  background-color: var(--light-grayish-cyan);
 }
 
 .attribution {
